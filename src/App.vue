@@ -1,28 +1,28 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app class="red">
+    <Navbar :teamData="team"/>
+
+    <v-content class="grey lighten-4 mx-4 mb-4">
+      <router-view :teamData="team"/>
+    </v-content>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Navbar from '@/components/Navbar'
 
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
-}
-</script>
+  name: 'App',
+  components: { Navbar },
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+  data: () => ({
+      team: [
+          { name: 'Public User', role: 'For public use', avatar: '/avatar-1.png' },
+          { name: 'Thomas Joyce', role: 'Graphic designer', avatar: '/avatar-2.png' },
+          { name: 'Cynthia Duran', role: 'Developer', avatar: '/avatar-3.png' },
+          { name: 'William Watkins', role: 'Social Media Exper', avatar: '/avatar-4.png' },
+          { name: 'Debra Casey', role: 'Sales Guru', avatar: '/avatar-5.png'}
+      ]
+  })
+};
+</script>
